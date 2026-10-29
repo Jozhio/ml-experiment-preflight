@@ -1,5 +1,12 @@
 # ML Experiment Preflight
 
+[![CI](https://github.com/Jozhio/ml-experiment-preflight/actions/workflows/unittest.yml/badge.svg?branch=main)](https://github.com/Jozhio/ml-experiment-preflight/actions/workflows/unittest.yml)
+[![Release](https://img.shields.io/badge/release-v0.1.0--preview-blue)](https://github.com/Jozhio/ml-experiment-preflight/releases/tag/v0.1.0)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+[![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+**English** | [简体中文](README.zh-CN.md)
+
 **Version 0.1.0 — pre-release.**
 
 `ml-experiment-preflight` is a read-only, offline pre-training check for an explicitly named ML project. You give it a project root, an entry script, explicit input paths, and explicit output paths. Before you launch training, it reports deterministic evidence about Git state, missing or mistyped inputs, and output/input conflicts.
