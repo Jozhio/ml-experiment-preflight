@@ -16,7 +16,8 @@ Thanks for considering a contribution. This project is a small, read-only prefli
 ### Windows PowerShell
 
 ```powershell
-cd F:\path\to\ml-experiment-preflight
+git clone https://github.com/Jozhio/ml-experiment-preflight.git
+cd ml-experiment-preflight
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
 .\.venv\Scripts\python.exe -m pip install .
@@ -25,7 +26,8 @@ python -m venv .venv
 ### Linux Bash
 
 ```bash
-cd /path/to/ml-experiment-preflight
+git clone https://github.com/Jozhio/ml-experiment-preflight.git
+cd ml-experiment-preflight
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install --upgrade pip
