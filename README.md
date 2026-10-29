@@ -49,6 +49,8 @@ The repository ships with three synthetic projects. They use placeholder files a
 Windows PowerShell (from the repository root):
 
 ```powershell
+$env:PATH = (Resolve-Path .\.venv\Scripts).Path + [IO.Path]::PathSeparator + $env:PATH
+if ((Get-Command ml-experiment-preflight.exe -CommandType Application).Source -ne (Resolve-Path .\.venv\Scripts\ml-experiment-preflight.exe).Path) { throw "The venv CLI is not on PATH." }
 .\.venv\Scripts\python.exe -B .\examples\verify_examples.py
 ```
 
@@ -68,7 +70,7 @@ Expected result:
 
 `risk` exits `2` even though it is `blocked` because one comparison is incomplete. Read the JSON first, then use the exit code as a secondary signal.
 
-The verifier prefers an installed `ml-experiment-preflight` command when it is on PATH; with the explicit venv Python shown above it may fall back to the source in this clone. Both paths exercise the same code.
+The first output line must be `using installed ml-experiment-preflight`. If the venv CLI is missing, install it before running the examples.
 
 ### 4. Try it on your own project
 
@@ -222,6 +224,8 @@ From the repository root:
 Windows PowerShell:
 
 ```powershell
+$env:PATH = (Resolve-Path .\.venv\Scripts).Path + [IO.Path]::PathSeparator + $env:PATH
+if ((Get-Command ml-experiment-preflight.exe -CommandType Application).Source -ne (Resolve-Path .\.venv\Scripts\ml-experiment-preflight.exe).Path) { throw "The venv CLI is not on PATH." }
 .\.venv\Scripts\python.exe -B .\examples\verify_examples.py
 ```
 

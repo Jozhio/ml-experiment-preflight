@@ -23,10 +23,12 @@ Run these commands from the repository root after installing the CLI. The fixtur
 ### Windows PowerShell
 
 ```powershell
+$env:PATH = (Resolve-Path .\.venv\Scripts).Path + [IO.Path]::PathSeparator + $env:PATH
+if ((Get-Command ml-experiment-preflight.exe -CommandType Application).Source -ne (Resolve-Path .\.venv\Scripts\ml-experiment-preflight.exe).Path) { throw "The venv CLI is not on PATH." }
 .\.venv\Scripts\python.exe -B .\examples\verify_examples.py
 ```
 
-If the venv is already activated, `python -B examples\verify_examples.py` is equivalent.
+The first output line must be `using installed ml-experiment-preflight`.
 
 ### Linux Bash
 

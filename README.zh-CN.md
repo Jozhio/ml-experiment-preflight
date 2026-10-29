@@ -49,6 +49,8 @@ ml-experiment-preflight --help
 Windows PowerShell（在仓库根目录运行）：
 
 ```powershell
+$env:PATH = (Resolve-Path .\.venv\Scripts).Path + [IO.Path]::PathSeparator + $env:PATH
+if ((Get-Command ml-experiment-preflight.exe -CommandType Application).Source -ne (Resolve-Path .\.venv\Scripts\ml-experiment-preflight.exe).Path) { throw "The venv CLI is not on PATH." }
 .\.venv\Scripts\python.exe -B .\examples\verify_examples.py
 ```
 
@@ -68,7 +70,7 @@ Linux（在仓库根目录运行）：
 
 `risk` 虽然是 `blocked`，但因存在不完整覆盖而退出 `2`。请先读 JSON，再把退出码作为辅助信号。
 
-校验器优先使用 PATH 上的已安装 `ml-experiment-preflight` 命令；使用上面的显式 venv Python 时，它可能回退到当前克隆目录的源码。两种方式运行的是同一份代码。
+首行输出必须是 `using installed ml-experiment-preflight`。如果虚拟环境中没有 CLI，请先安装，再运行示例。
 
 ### 4. 在自己的项目上运行
 
@@ -222,6 +224,8 @@ Skill 要求显式提供 `--root`、`--entry`、输入和输出；只运行只�
 Windows PowerShell：
 
 ```powershell
+$env:PATH = (Resolve-Path .\.venv\Scripts).Path + [IO.Path]::PathSeparator + $env:PATH
+if ((Get-Command ml-experiment-preflight.exe -CommandType Application).Source -ne (Resolve-Path .\.venv\Scripts\ml-experiment-preflight.exe).Path) { throw "The venv CLI is not on PATH." }
 .\.venv\Scripts\python.exe -B .\examples\verify_examples.py
 ```
 
