@@ -196,6 +196,23 @@ CLI 是检查器；Agent Skill 是可选的说明，用于让 Claude Code 或 Co
 
 仓库中两份副本逐字节一致（SHA-256 `a7cf67ff94fac04186530e1318b115c4d77504d8d87d52951baa42befa1f3a1c`）。如果同时安装到两个宿主，请保持两份副本一致。
 
+### 使用 Skills CLI 安装（可选）
+
+社区工具 [Skills CLI](https://github.com/vercel-labs/skills) 可以将本 Skill 安装到项目中。请在**准备使用 Skill 的目标项目根目录**执行下列命令（要求 Node.js 22.20+）。此过程会下载并运行 Skills CLI，可能访问网络。
+
+```bash
+# 仅列出仓库中可以发现的 Skill，不执行安装
+npx skills add Jozhio/ml-experiment-preflight --list
+
+# 安装到当前项目，供 Claude Code 和 Codex 使用
+npx skills add Jozhio/ml-experiment-preflight --skill ml-experiment-preflight --agent claude-code --agent codex --copy -y
+
+# 核对两个 Agent 的安装记录
+npx skills list -a claude-code -a codex
+```
+
+Skills CLI **只安装 Agent Skill 指令文件**，不会安装 Python `ml-experiment-preflight` 检查程序；请按照上方“快速开始”单独安装 Python CLI。Skill 发现及项目级文件安装已在 Windows 实测，实际加载行为仍取决于 Agent 宿主。如果安装失败，可使用下方手动复制方法。
+
 ### 把 Skill 复制到自己的项目
 
 Windows PowerShell——在 `ml-experiment-preflight` 克隆目录中执行：

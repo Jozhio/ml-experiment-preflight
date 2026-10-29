@@ -196,6 +196,23 @@ These paths follow the official conventions: [Claude Code Skills](https://code.c
 
 The two copies in this repository are byte-identical (SHA-256 `a7cf67ff94fac04186530e1318b115c4d77504d8d87d52951baa42befa1f3a1c`). If you install both hosts, keep your copies identical.
 
+### Install with the Skills CLI (optional)
+
+The community [Skills CLI](https://github.com/vercel-labs/skills) can install this Skill into a project. Run the following from **your target project's root** (Node.js 22.20+ is required). This downloads and runs the Skills CLI and may access the network.
+
+```bash
+# Preview available Skills without installing
+npx skills add Jozhio/ml-experiment-preflight --list
+
+# Install to the current project for both Claude Code and Codex
+npx skills add Jozhio/ml-experiment-preflight --skill ml-experiment-preflight --agent claude-code --agent codex --copy -y
+
+# Confirm both agent targets were registered
+npx skills list -a claude-code -a codex
+```
+
+The Skills CLI installs **Skill instructions only**. It does not install the Python `ml-experiment-preflight` checker; install the Python CLI separately using the Quick Start above. Skill discovery and installation were tested on Windows, but runtime loading varies by agent. If installation fails, use the manual-copy method below.
+
 ### Copy the Skill into your own project
 
 Windows PowerShell — from the `ml-experiment-preflight` clone:
