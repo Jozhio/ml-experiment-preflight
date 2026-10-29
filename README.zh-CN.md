@@ -1,6 +1,13 @@
 # ML Experiment Preflight
 
-**版本 0.1.0 — 预发布。**
+[![CI](https://github.com/Jozhio/ml-experiment-preflight/actions/workflows/unittest.yml/badge.svg?branch=main)](https://github.com/Jozhio/ml-experiment-preflight/actions/workflows/unittest.yml)
+[![Release](https://img.shields.io/badge/release-v0.1.0--preview-blue)](https://github.com/Jozhio/ml-experiment-preflight/releases/tag/v0.1.0)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+[![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+[English](README.md) | **简体中文**
+
+**版本 0.1.0 — 预发布版。**
 
 `ml-experiment-preflight` 是一个只读、离线的训练前预检工具。你显式提供项目根、入口脚本、输入路径和输出路径；它在启动训练前给出确定性的 Git 状态、输入缺失/类型错误，以及输出与输入冲突证据。
 
